@@ -1,0 +1,23 @@
+            SET-LANG HELP
+             by RagePly
+
+1. Defining a SET
+Syntax: set_name = { var1[, var2[, ...]] : < definition -> bool >}
+
+2. SET Arithmatic
+Other sets can be used when definining a new set. The following sections
+define set arithmatic.
+
+2.1. Inclusion
+Within an expression:
+Syntax (single element sets): e in set_name
+Syntax (multiple element sets) : (e1,e2[,e3[,...]]) in set_name
+Syntax (compound FOR ALL elements) = [e1, e2[, e3[, ...]]] in set_name
+
+2. Inquiry
+Using the same syntax for inclusion outside of a definition and followed by
+a '?' will answer wether the element/s is included in the set. Most errors
+will occurr at this stage, as it is the first time a set definition is
+evaluated.
+
+3. Predefined SETS

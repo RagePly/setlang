@@ -1,0 +1,5 @@
+            SET-LANG
+           by RagePly
+
+Github: https://github.com/RagePly
+For help text, type "help". To exit, type "exit" 

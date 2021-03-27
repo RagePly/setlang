@@ -1,0 +1,30 @@
+; SETLANG NUMERICS LIBRARY
+
+; 1. The Universal and zerO set
+UU = { x : True}
+OO = { x : False}
+
+; 2. Basic Number sets
+;   NN - positive natural numbers, ZZ - all digits, RR - All rational numbers, RRx - x-dimensional space,
+;   RRpos - positive rational numbers, RRneg - negative rational numbers, CC - complex numbers.
+NN =    { x : type(x) is int and x >= 0 }
+ZZ =    { x : type(x) is int }
+RR =    { x : x in ZZ or type(x) is float }
+RR2 =   { x, y: [x,y] in RR}
+RR3 =   { x, y, z: [x,y,z] in RR}
+RRn =   { v, n: len(v) == n and list(v) in RR}
+RRpos = { x : x in RR and x >= 0 }
+RRneg = { x : x in RR and x < 0 }
+CC =    { x : x in RR or type(x) is complex }
+
+; 3. Special Number set
+
+; 3.1 Mandebrot Set
+;   All complex numbers, c, that stay bounded under the continued recursive iteration of z_n+1 = (z_n)^2 + c, with z_0 = 0.
+;   Different forms:
+;       * Mb is by default the set where c remains below 2 over 100 iterations
+;       * Mb_max_it is the similarily defined but allows one to specify the number of max iterations
+;       * _Mb is a recursivly defined set. Use the above for simplicity.
+_Mb = { z, c, max_it : True if abs((zp:=z*z + c)) <= 2 and max_it == 0 else False if abs(zp) > 2 else (zp, c, max_it - 1) in _Mb }
+Mb_max_it = {z, max_it : z in CC and (0j, z, max_it) in _Mb}
+Mb = {z : z in CC and (0j, z, 100) in _Mb}
